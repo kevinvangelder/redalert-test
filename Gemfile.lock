@@ -82,6 +82,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedAlert
   afmotion
   cdq
   newclear

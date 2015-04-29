@@ -8,8 +8,13 @@ class HomeScreen < PM::Screen
 
     @hello_world = append!(UILabel, :hello_world)
 
-    # rmq.app.make_button("test") { puts "test pressed" }
-    # app.make_button("test") { puts "test pressed" }
+    buttons = [{k: "Button 1", v: 1}, {k: "Button 2", v: 2}, {k: "Button 3", v: 3}].map do |b|
+      rmq.app.make_button(b[:k]) { b[:v] }
+    end
+
+    rmq.app.alert(message: "Choose", actions: buttons, style: :sheet) do |v|
+      mp v
+    end
   end
 
   def nav_left_button
